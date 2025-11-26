@@ -518,6 +518,7 @@ h2{
   }
   &__img{
     width: 50%;
+    pointer-events: none;
     &--inner{
       position: relative;
       max-width: 703px;
@@ -527,7 +528,7 @@ h2{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 63%;
+        width: 51%;
         max-width: 356px;
         max-height: 517px;
         object-fit: cover;
@@ -539,7 +540,7 @@ h2{
       z-index: 2;
       overflow: visible;
       &.about__img--min-svg{
-        width: 60%;
+        width: 43%;
         max-width: 338px;
         height: 488px;
         top: 49%;
@@ -554,7 +555,7 @@ h2{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 80%;
+        width: 60%;
       }
       .min-text{
         font-family: 'Lora', serif;
@@ -577,9 +578,10 @@ h2{
     }
   }
   .about{
-    padding-top: 144px;
+    padding-top: 100px;
     &__wrapper {
       flex-direction: column-reverse;
+      gap: 80px;
     }
     &__offer{
       width: 100%;
@@ -591,10 +593,28 @@ h2{
         max-height: 908px;
         min-height: 540px;
         height: 100%;
+        img{
+          width: 60%;
+        }
       }
-      &--max-svg{
-        height: 100%;
+      svg{
+        &.about__img--min-svg{
+          width: 50%;
+        }
+        &.about__img--max-svg{
+          height: 100%;
+          width: 72%;
+        }
       }
+
+    }
+  }
+}
+@media (max-width: 440px) {
+.about{
+    &__img{
+      width: 94%;
+      margin: 0 auto;
     }
   }
 }

@@ -635,6 +635,7 @@ h2 {
 
 .about__img {
   width: 50%;
+  pointer-events: none;
 }
 
 .about__img--inner {
@@ -649,7 +650,7 @@ h2 {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 63%;
+  width: 51%;
   max-width: 356px;
   max-height: 517px;
   -o-object-fit: cover;
@@ -664,7 +665,7 @@ h2 {
 }
 
 .about__img svg.about__img--min-svg {
-  width: 60%;
+  width: 43%;
   max-width: 338px;
   height: 488px;
   top: 49%;
@@ -683,7 +684,7 @@ h2 {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 80%;
+  width: 60%;
 }
 
 .about__img svg .min-text {
@@ -704,13 +705,14 @@ h2 {
     margin-left: 0;
   }
   .about {
-    padding-top: 144px;
+    padding-top: 100px;
   }
   .about__wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    gap: 80px;
   }
   .about__offer {
     width: 100%;
@@ -724,8 +726,22 @@ h2 {
     min-height: 540px;
     height: 100%;
   }
-  .about__img--max-svg {
+  .about__img--inner img {
+    width: 60%;
+  }
+  .about__img svg.about__img--min-svg {
+    width: 50%;
+  }
+  .about__img svg.about__img--max-svg {
     height: 100%;
+    width: 72%;
+  }
+}
+
+@media (max-width: 440px) {
+  .about__img {
+    width: 94%;
+    margin: 0 auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
