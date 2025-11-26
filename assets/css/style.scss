@@ -57,6 +57,12 @@ button {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
+p{
+  font-size: clamp(1.25rem, calc(1.18rem + 0.27vw), 1.5rem);
+}
+p:not(:last-child){
+  margin-bottom: 20px;
+}
 #root, #__next {
   isolation: isolate;
 }
@@ -71,6 +77,11 @@ h2{
   font-family: 'Lora', serif;
   font-size: clamp(4.44rem, calc(-1.5rem + 7.92vw), 8rem);
   line-height: 95%;
+}
+h4{
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
 }
 .subtitle{
   font-family: 'Lora', serif;
@@ -460,7 +471,7 @@ h2{
     position: absolute;
     top: -50px;
     left: -3%;
-    z-index: 2;
+    z-index: -1;
   }
   &__offer{
     margin-left: 50%;
@@ -615,6 +626,194 @@ h2{
     &__img{
       width: 94%;
       margin: 0 auto;
+    }
+  }
+}
+
+.couching{
+  h2{
+    max-width: 991px;
+  }
+}
+.whot{
+  &__wrapper{
+    display: flex;
+    margin-top: clamp(3.19rem, calc(0.64rem + 9.46vw), 12rem);
+    margin-bottom: clamp(8.44rem, calc(6.9rem + 5.7vw), 13.75rem);
+  }
+  &__img{
+    width: 50%;
+    max-height: clamp(29.44rem, calc(21.34rem + 30.13vw), 57.5rem);
+    margin-top: 67px;
+    display: flex;
+    img{
+
+      width: 70%;
+      height: clamp(29.44rem, calc(21.34rem + 30.13vw), 57.5rem);
+      object-fit: cover;
+    }
+    &--text{
+      margin-left: 12px;
+      display: flex;
+    span{
+        display: inline-block;
+        writing-mode: vertical-lr;
+        font-family: "Lora", serif;
+        font-size: clamp(1.88rem, calc(1.26rem + 2.28vw), 4rem);
+        height: 100%;
+        &:nth-child(1){
+          color: var(--accent);
+        }
+        &:nth-child(2){
+          color: var(--green);
+          margin-top: auto;
+          text-align: end;
+        }
+      }
+    }
+  }
+  &__content{
+    width: 50%;
+    strong{
+      font-weight: 500;
+      color: var(--accent);
+    }
+    &--icons{
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+.principles{
+  position: relative;
+  &__line{
+    position: absolute;
+    width: 100%;
+    height: 274px;
+    background-color: #D9D9D9;
+    bottom: 14%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  &__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: clamp(4.38rem, calc(2.88rem + 5.57vw), 9.56rem);
+    margin-top: clamp(2.13rem, calc(0.93rem + 4.43vw), 6.25rem);
+  }
+  &__item{
+    width: 50%;
+    h4{
+      margin-top: 39px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+    }
+    &:nth-child(1) &--inner{
+      max-width: 341px;
+      margin-top: 253px;
+    }
+    &:nth-child(2) &--inner{
+      max-width: 621px;
+      p{
+        max-width: 539px;
+      }
+    }
+    &:nth-child(3) &--inner{
+      max-width: 589px;
+      margin-left: auto;
+      p{
+        max-width: 347px;
+      }
+    }
+    &:nth-child(4) &--inner{
+      max-width: 390px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 260px;
+      img{
+        max-width: 336px;
+      }
+      p{
+        max-width: 390px;
+      }
+    }
+  }
+}
+@media (max-width: 1080px){
+  .principles__line{
+    height: 80px;
+    bottom: 20%;
+  }
+}
+@media (max-width: 960px) {
+  .principles__line{
+    display: none;
+  }
+  .whot{
+    
+    &__wrapper{
+      flex-direction: column;
+    }
+    &__img{
+      width: 100%;
+      flex-shrink: 1;
+      margin-bottom: 41px;
+      img{
+        width: 77%;
+      }
+      span{
+        &:nth-child(1){
+          text-align: end;
+          transform: translateY(31px);
+        }
+        &:nth-child(2){
+          text-align: start;
+        }
+      }
+    }
+    &__content{
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 740px){
+  .principles{
+    &__item{
+      width: 100%;
+      &--inner{
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}
+@media (max-width: 440px){
+  .whot{
+    &__content{
+      &--icons{
+        position: relative;
+        img{
+          overflow: hidden;
+          &:nth-child(1){
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+  .principles{
+    &__item{
+      &--inner{
+        img{
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
     }
   }
 }
