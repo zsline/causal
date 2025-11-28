@@ -11,6 +11,7 @@
     <title>Causal</title>
   </head>
   <body>
+    <div id="top"></div>
     <div class="site-nav">
       <div class="site-nav__menu">
         <nav>
@@ -52,7 +53,7 @@
           </svg>
         </div>
       </div>
-      <div class="site-nav__top">
+      <a href="#top" class="site-nav__top">
         <svg
           width="20"
           height="24"
@@ -65,10 +66,10 @@
             fill="white"
           />
         </svg>
-      </div>
+      </a>
     </div>
     <div class="wrapper front-page">
-      <header class="header">
+      <header id="header" class="header">
         <div class="container">
           <div class="header__wrapper">
             <div class="header__logo">
@@ -876,9 +877,104 @@
             </div>
           </div>
         </section>
+        <section class="result">
+          <div class="container">
+            <h2>
+              Який результат <strong>отримують</strong>
+              <strong>клієнти?</strong>
+            </h2>
+            <p>
+              Клієнти Каузального Коучингу отримують глибинні та стійкі зміни,
+              що забезпечують довготривалі та значущі результати як на
+              внутрішньому, так і на зовнішньому рівнях. Це інвестиція у ваш
+              особистий ріст та якість життя.
+            </p>
+            <div class="result__wrapper">
+              <div class="result__info">
+                <div class="result__info--img">
+                  <img src="./assets/img/result.jpg" alt="" />
+                </div>
+                <div class="result__info--text">
+                  Оскільки ви змінюєте внутрішні "значення", це природним чином
+                  призводить до суттєвих позитивних змін у вашому зовнішньому
+                  житті – у стосунках, професійному зростанні, фінансовому
+                  благополуччі та загальному рівні добробуті. Ви не просто
+                  відчуваєте себе по-іншому, ваша реальність починає змінюватися
+                  відповідно до ваших нових внутрішніх установок.
+                </div>
+              </div>
+              <div class="result__list">
+                <ul>
+                  <li>Усвідомлене Авторство Свого Досвіду</li>
+                  <li>Вихід із "Замкнених Петель"</li>
+                  <li>Глибинне Розуміння Себе</li>
+                  <li>Збільшення Свободи Вибору</li>
+                  <li>Внутрішня гармонія та щастя</li>
+                  <li>Розкриття Потенціалу</li>
+                  <li>Відчутні Зміни в Реальності</li>
+                </ul>
+              </div>
+            </div>
+            <div class="result__btn">
+              <a href="#">Дослідити себе</a>
+            </div>
+          </div>
+          <div class="star">
+            <svg
+              width="102"
+              height="102"
+              viewBox="0 0 102 102"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform-origin="51 51">
+                <path
+                  d="M64.3233 101.461C49.9766 53.793 48.4562 52.9216 -0.000550014 64.3233C47.6671 49.9766 48.5387 48.4561 37.1369 -0.000468016C51.4835 47.6671 53.004 48.5387 101.461 37.1368C53.7951 51.491 52.9177 52.9892 64.3233 101.461Z"
+                  fill="#E3B891"
+                />
+                <!-- Лёгкое покачивание -->
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="18s"
+                  values="0; 50; 0"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  additive="sum"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+
+                <!-- Микро-пульсация (дыхание) -->
+                <animateTransform
+                  attributeName="transform"
+                  type="scale"
+                  dur="12s"
+                  values="1; 0.73; 1"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  additive="sum"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+              </g>
+            </svg>
+          </div>
+        </section>
+        <section class="faq">
+          <div class="container">
+            <div class="faq__wrapper">
+              <div class="faq__info">
+                <h2>FAQ</h2>
+                <div class="faq__subtitle">Простір питань і відповідей</div>
+              </div>
+              <div class="faq__accordion"></div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer class="footer">
-        <div class="container">Footer</div>
+        <div class="container"></div>
       </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>

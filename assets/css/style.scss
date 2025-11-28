@@ -1007,8 +1007,146 @@ h4{
   max-width: 820px;
   width: auto;
   // flex-shrink: 0;
-
   img{
     width: 100%;
   }
+}
+
+// === RESULT ===========
+.result{
+  position: relative;
+  .star{
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+  }
+  h2{
+    text-align: center;
+    width: 60%;
+    margin: 0 auto 62px;
+    letter-spacing: -0.02rem;
+    strong:nth-child(1){
+      color: var(--green);
+    }
+    strong:nth-child(2){
+      color: var(--accent);
+    }
+  }
+  p{
+    font-size: clamp(1.25rem, calc(1.18rem + 0.27vw), 1.5rem);
+    text-align: center;
+    padding: 0 clamp(0rem, calc(-2.2rem + 8.19vw), 7.63rem);
+  }
+  &__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: clamp(2.5rem, calc(1.92rem + 2.15vw), 4.5rem);
+  }
+  &__info{
+    width: clamp(21rem, calc(20.04rem + 3.56vw), 24.31rem);
+    margin-left: clamp(0rem, calc(-3.61rem + 13.42vw), 12.5rem);
+    &--img{
+      margin-bottom: 32px;
+    }
+    &--text{
+      font-size: clamp(1.25rem, calc(1.18rem + 0.27vw), 1.5rem);
+      line-height: 140%;
+      letter-spacing: -0.84px;
+    }
+  }
+  &__list{
+    width: 50%;
+    font-family: 'Lora', serif;
+    font-size: clamp(1.13rem, calc(0.73rem + 1.48vw), 2.5rem);
+    line-height: clamp(2.5rem, calc(1.45rem + 3.89vw), 6.13rem);
+    padding-right: clamp(0rem, calc(-1.05rem + 3.89vw), 3.63rem);
+    li{
+      padding: clamp(0.81rem, calc(0.47rem + 1.28vw), 2rem) clamp(0.81rem, calc(0.47rem + 1.28vw), 2rem) clamp(0.81rem, calc(0.33rem + 1.81vw), 2.5rem) clamp(0.81rem, calc(0.51rem + 1.14vw), 1.88rem);
+      opacity: 0.3;
+      border-top: 1px solid #ffffff40;
+      &:last-child{
+        border-bottom: 1px solid #ffffff40;
+      }
+    }
+  }
+  &__btn{
+    width: fit-content;
+    margin-left: auto;
+    margin-top: 84px;
+    margin-right: clamp(0rem, calc(-1.05rem + 3.89vw), 3.63rem);
+    border-bottom: 2px solid var(--text);
+    a {
+      position: relative;
+      padding-right: 34px;
+      font-size: 28px;
+      line-height: 36px;
+      letter-spacing: -1.4px;
+      &::after{
+        position: absolute;
+        right: 0;
+        top: 2px;
+        content: url('data:image/svg+xml,<svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.2441 17.2441L11.9941 22.4941C11.8299 22.6583 11.6072 22.7505 11.375 22.7505C11.1428 22.7505 10.9201 22.6583 10.7559 22.4941C10.5918 22.3299 10.4995 22.1072 10.4995 21.875C10.4995 21.6428 10.5918 21.4201 10.7559 21.2559L14.513 17.5H0.875C0.642936 17.5 0.420376 17.4078 0.256282 17.2437C0.0921874 17.0796 0 16.8571 0 16.625V0.875C0 0.642936 0.0921874 0.420376 0.256282 0.256282C0.420376 0.0921872 0.642936 0 0.875 0C1.10706 0 1.32962 0.0921872 1.49372 0.256282C1.65781 0.420376 1.75 0.642936 1.75 0.875V15.75H14.513L10.7559 11.9941C10.5918 11.8299 10.4995 11.6072 10.4995 11.375C10.4995 11.1428 10.5918 10.9201 10.7559 10.7559C10.9201 10.5918 11.1428 10.4995 11.375 10.4995C11.6072 10.4995 11.8299 10.5918 11.9941 10.7559L17.2441 16.0059C17.3254 16.0872 17.39 16.1837 17.434 16.2899C17.478 16.3962 17.5007 16.51 17.5007 16.625C17.5007 16.74 17.478 16.8539 17.434 16.9601C17.39 17.0663 17.3254 17.1628 17.2441 17.2441Z" fill="%23E3B891"/></svg>');
+      }
+    }
+  }
+}
+@media (max-width:996px) {
+  .result{
+    &__wrapper{
+      flex-direction: column-reverse;
+    }
+    &__list{
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+}
+@media (max-width:740px){
+  .reviews{
+    padding-bottom: 120px;
+  }
+  .result{
+    h2{
+      width: 100%;
+      text-align: left;
+    }
+    p{
+      width: 100%;
+      text-align: left;
+    }
+    &__list{
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+}
+@media (max-width:460px){
+    h2{
+      font-size: 60px;
+      font-weight: 400;
+      strong{
+        font-weight: 400;
+      }
+    }
+  .result{
+
+  }
+}
+.faq{
+  padding-top: clamp(3.38rem, calc(0.33rem + 11.34vw), 13.94rem);
+  h2{
+    margin-bottom: 24px;
+  }
+  &__subtitle{
+    max-width: 222px;
+    font-size: 20px;
+  }
+  &__accordion{
+    width: 66.5%;
+  }
+}
+
+footer{
+  min-height: 100px;
 }
