@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Causal</title>
   </head>
@@ -357,7 +361,7 @@
                           attributeName="startOffset"
                           from="0%"
                           to="-100%"
-                          dur="12s"
+                          dur="0s"
                           repeatCount="indefinite"
                         />
                       </textPath>
@@ -375,7 +379,7 @@
                           attributeName="startOffset"
                           from="100%"
                           to="0%"
-                          dur="12s"
+                          dur="0s"
                           repeatCount="indefinite"
                         />
                       </textPath>
@@ -406,7 +410,7 @@
                           attributeName="startOffset"
                           from="0%"
                           to="100%"
-                          dur="15s"
+                          dur="0s"
                           repeatCount="indefinite"
                         />
                       </textPath>
@@ -423,7 +427,7 @@
                           attributeName="startOffset"
                           from="-100%"
                           to="0%"
-                          dur="15s"
+                          dur="0s"
                           repeatCount="indefinite"
                         />
                       </textPath>
@@ -435,6 +439,113 @@
           </div>
         </section>
         <section class="couching">
+          <div class="star">
+            <svg
+              width="102"
+              height="102"
+              viewBox="0 0 102 102"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- Центр всех трансформаций — середина SVG -->
+              <g transform-origin="51 51">
+                <path
+                  d="M64.3233 101.461C49.9766 53.7935 48.4562 52.9221 -0.000550014 64.3238C47.6671 49.9771 48.5387 48.4566 37.1369 2.02656e-05C51.4835 47.6676 53.004 48.5391 101.461 37.1373C53.7951 51.4915 52.9177 52.9897 64.3233 101.461Z"
+                  fill="#E3B891"
+                />
+                <!-- Плавное вверх-вниз -->
+                <animateTransform
+                  attributeName="transform"
+                  type="translate"
+                  dur="8s"
+                  values="0 0; 0 -16; 0 0"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+
+                <!-- Лёгкое покачивание -->
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="18s"
+                  values="0; 90; 0"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  additive="sum"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+
+                <!-- Микро-пульсация (дыхание) -->
+                <animateTransform
+                  attributeName="transform"
+                  type="scale"
+                  dur="12s"
+                  values="1; 0.73; 1"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  additive="sum"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="key">
+            <svg
+              width="123"
+              height="104"
+              viewBox="0 0 123 104"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform-origin="62 52">
+                <path
+                  d="M113.459 22.8041C118.041 19.5826 118.722 13.4673 115.775 9.27575C112.828 5.08421 107.138 4.07388 102.678 6.58337C98.5122 9.51201 97.4151 15.9202 100.362 20.1117C103.309 24.3033 109.293 25.7327 113.459 22.8041ZM78.8018 39.027L74.2195 42.2485C75.1035 43.506 74.8597 44.93 73.61 45.8086L71.9437 46.9801C70.6939 47.8587 69.2714 47.6061 68.3874 46.3486L22.2695 78.1445L33.4673 94.0723L28.885 97.2938L25.3488 92.264L20.7665 95.4855L24.3026 100.515L20.1369 103.444L8.93914 87.5161L5.60654 89.859C1.85737 92.4948 -2.26812 86.6266 1.48106 83.9909L64.2619 40.4804C63.3779 39.223 63.6217 37.799 64.8714 36.9204L66.5377 35.7489C67.7874 34.8703 69.2099 35.1229 70.094 36.3804L74.6763 33.1589C74.2088 31.6085 73.7414 30.0582 73.9852 28.6342C71.5567 27.8361 68.9555 25.9069 67.1875 23.392C62.7673 17.1047 64.352 7.84846 71.0171 3.16264C77.6823 -1.52319 86.9286 0.118592 91.2269 7.11793C92.4056 8.79455 93.5843 10.4712 93.6352 12.3144C94.2447 8.75426 96.3986 4.73473 99.7312 2.39183C106.691 -1.87485 115.226 -0.359352 119.941 6.34712C124.656 13.0536 123.071 22.3098 116.406 26.9956C113.073 29.3386 108.979 29.712 105.422 29.0805C106.723 30.0451 108.318 31.4289 109.497 33.1055C114.212 39.812 112.627 49.0682 105.667 53.3349C99.002 58.0207 90.1723 56.0861 85.7521 49.7987C83.9841 47.2838 82.9273 44.8952 82.7036 41.9208C81.403 40.9562 79.6858 40.2845 78.8018 39.027ZM93.0056 20.2728C90.9026 26.1356 85.4871 29.9428 79.2586 29.9374C79.4823 32.9117 81.2503 35.4266 83.6788 36.2247C85.7818 30.3619 91.1972 26.5547 97.7204 26.9793C97.4968 24.005 95.7287 21.49 93.0056 20.2728ZM102.141 33.2666C100.038 39.1294 94.2055 43.2294 88.3936 42.9311C89.4303 49.7182 96.8884 53.2434 102.72 49.1433C108.552 45.0432 108.176 36.5393 102.141 33.2666ZM97.2837 31.6706C93.6055 31.7511 89.8564 34.3869 88.5356 37.8207C92.2138 37.7402 95.5464 35.3972 97.2837 31.6706ZM74.5438 23.2309C76.6468 17.3682 82.4788 13.2681 89.002 13.6927C87.5487 7.19849 79.796 3.25409 73.9639 7.35418C68.1319 11.4543 68.5082 19.9582 74.5438 23.2309ZM79.4006 24.8269C83.4954 24.4535 86.828 22.1106 88.1487 18.6768C84.4705 18.7574 81.138 21.1003 79.4006 24.8269Z"
+                  fill="#306049"
+                />
+                <!-- Плавное вверх-вниз -->
+                <animateTransform
+                  attributeName="transform"
+                  type="translate"
+                  dur="12s"
+                  values="0 0; 0 -36; 0 0;"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+
+                <!-- Лёгкое покачивание -->
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="10s"
+                  values="0; -12; 0"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  additive="sum"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+
+                <!-- Микро-пульсация (дыхание) -->
+                <animateTransform
+                  attributeName="transform"
+                  type="scale"
+                  dur="12s"
+                  values="1; 0.93; 1"
+                  keyTimes="0;0.5;1"
+                  repeatCount="indefinite"
+                  additive="sum"
+                  calcMode="spline"
+                  keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                />
+              </g>
+            </svg>
+          </div>
           <div class="container">
             <div class="couching__whot whot">
               <h2>Що таке Каузальний Коучинг?</h2>
@@ -548,12 +659,229 @@
               <div class="principles__line"></div>
             </div>
           </div>
+          <div class="couching__footer">
+            <div class="couching__footer--anim">
+              <svg
+                class="horisont-path"
+                width="342"
+                height="213"
+                viewBox="0 0 342 213"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="overflow: visible"
+              >
+                <path
+                  id="horisont-path"
+                  d="M0 106.123 C0 164.732 47.5127 212.245 106.123 212.245 H235.182 C293.792 212.245 341.305 164.732 341.305 106.123 C341.305 47.5127 293.792 0 235.182 0 H106.123 C47.5127 0 0 47.5127 0 106.123 Z"
+                  fill=""
+                />
+                <text class="min-text" fill="">
+                  <textPath
+                    href="#horisont-path"
+                    id="tp1"
+                    startOffset="0%"
+                    side="right"
+                    dominant-baseline="hanging"
+                  >
+                    Свідомий рух Причини щастя
+                    <animate
+                      attributeName="startOffset"
+                      from="0%"
+                      to="100%"
+                      dur="12s"
+                      repeatCount="indefinite"
+                    />
+                  </textPath>
+                </text>
+                <text class="min-text" fill="">
+                  <textPath
+                    href="#horisont-path"
+                    id="tp2"
+                    startOffset="100%"
+                    side="right"
+                    dominant-baseline="hanging"
+                  >
+                    Свідомий рух Причини щастя
+                    <animate
+                      attributeName="startOffset"
+                      from="-100%"
+                      to="0%"
+                      dur="12s"
+                      repeatCount="indefinite"
+                    />
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+            <div class="decor-text">
+              <p>
+                Справжні зміни починаються тихо — з усвідомлення, щ о щастя
+                ближче, ніж здається. Маленькі відкриття створюють великі
+                зсув<br /><br />
+                и. Саме так усе й починаєтьсяСправжні зм іни<br />
+                починаються тихо — з усвідомлення, що щастя ближче, ніж
+                здається. Маленькі відкриття створюють великі зсуви. Саме так
+                усе й починаєтьсяСправ<br /><br />
+                жні зміни починаються тихо — з усвідомлення, що щастя ближче,
+                ніж здається
+              </p>
+            </div>
+            <div class="star">
+              <svg
+                width="153"
+                height="167"
+                viewBox="0 0 153 167"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g transform-origin="76 83">
+                  <path
+                    d="M117.694 167C91.4444 88.5415 88.6626 87.1072 0.0036249 105.874C87.2188 82.2598 88.8136 79.7573 67.9522 0.000274542C94.2014 78.4585 96.9835 79.8931 185.642 61.1263C98.4309 84.7525 96.8256 87.2185 117.694 167Z"
+                    fill="#E3B891"
+                  />
+                  <!-- Лёгкое покачивание -->
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    dur="22s"
+                    values="0; 50; 0"
+                    keyTimes="0;0.5;1"
+                    repeatCount="indefinite"
+                    additive="sum"
+                    calcMode="spline"
+                    keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                  />
+
+                  <!-- Микро-пульсация (дыхание) -->
+                  <animateTransform
+                    attributeName="transform"
+                    type="scale"
+                    dur="12s"
+                    values="1; 0.73; 1"
+                    keyTimes="0;0.5;1"
+                    repeatCount="indefinite"
+                    additive="sum"
+                    calcMode="spline"
+                    keySplines=".25 .1 .25 1; .25 .1 .25 1"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </section>
+        <section class="reviews">
+          <div class="container">
+            <div class="reviews__title">Справжні історії</div>
+            <div class="reviews__wrapper">
+              <div class="reviews__item">
+                <div class="reviews__item--img">
+                  <div class="reviews__item--btn"></div>
+                  <img src="./assets/img/reviews-1.jpg" alt="" />
+                </div>
+                <div class="reviews__item--content">
+                  <p>
+                    Привіт! Я Дмитро — лалалалаалла каузальний коуч і дослідниця
+                    свідомості. Моя місія — допомагати людям виявляти глибинні
+                    причини їхніх життєвих сценаріїв і трансформувати їх так,
+                    щоб усередині з’явилася свобода, а зовні — нові, бажані
+                    результати.
+                  </p>
+                  <p>
+                    Я хочу передати глибоке відчуття, що все, що ми бачимо у
+                    своєму житті, має причину всередині нас. І що ця причина —
+                    не вирок, а точка сили.
+                  </p>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item--img">
+                  <div class="reviews__item--btn"></div>
+                  <img src="./assets/img/reviews-2.jpg" alt="" />
+                </div>
+                <div class="reviews__item--content">
+                  <p>
+                    Привіт! Я Дмитро — лалалалаалла каузальний коуч і дослідниця
+                    свідомості. Моя місія — допомагати людям виявляти глибинні
+                    причини їхніх життєвих сценаріїв і трансформувати їх так,
+                    щоб усередині з’явилася свобода, а зовні — нові, бажані
+                    результати.
+                  </p>
+                  <p>
+                    Я хочу передати глибоке відчуття, що все, що ми бачимо у
+                    своєму житті, має причину всередині нас. І що ця причина —
+                    не вирок, а точка сили.
+                  </p>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item--img">
+                  <div class="reviews__item--btn"></div>
+                  <img src="./assets/img/reviews-3.jpg" alt="" />
+                </div>
+                <div class="reviews__item--content">
+                  <p>
+                    Привіт! Я Дмитро — лалалалаалла каузальний коуч і дослідниця
+                    свідомості. Моя місія — допомагати людям виявляти глибинні
+                    причини їхніх життєвих сценаріїв і трансформувати їх так,
+                    щоб усередині з’явилася свобода, а зовні — нові, бажані
+                    результати.
+                  </p>
+                  <p>
+                    Я хочу передати глибоке відчуття, що все, що ми бачимо у
+                    своєму житті, має причину всередині нас. І що ця причина —
+                    не вирок, а точка сили.
+                  </p>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item--img">
+                  <div class="reviews__item--btn"></div>
+                  <img src="./assets/img/reviews-4.jpg" alt="" />
+                </div>
+                <div class="reviews__item--content">
+                  <p>
+                    Привіт! Я Дмитро — лалалалаалла каузальний коуч і дослідниця
+                    свідомості. Моя місія — допомагати людям виявляти глибинні
+                    причини їхніх життєвих сценаріїв і трансформувати їх так,
+                    щоб усередині з’явилася свобода, а зовні — нові, бажані
+                    результати.
+                  </p>
+                  <p>
+                    Я хочу передати глибоке відчуття, що все, що ми бачимо у
+                    своєму житті, має причину всередині нас. І що ця причина —
+                    не вирок, а точка сили.
+                  </p>
+                </div>
+              </div>
+              <div class="reviews__item">
+                <div class="reviews__item--img">
+                  <div class="reviews__item--btn"></div>
+                  <img src="./assets/img/reviews-5.jpg" alt="" />
+                </div>
+                <div class="reviews__item--content">
+                  <p>
+                    Привіт! Я Дмитро — лалалалаалла каузальний коуч і дослідниця
+                    свідомості. Моя місія — допомагати людям виявляти глибинні
+                    причини їхніх життєвих сценаріїв і трансформувати їх так,
+                    щоб усередині з’явилася свобода, а зовні — нові, бажані
+                    результати.
+                  </p>
+                  <p>
+                    Я хочу передати глибоке відчуття, що все, що ми бачимо у
+                    своєму житті, має причину всередині нас. І що ця причина —
+                    не вирок, а точка сили.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
       <footer class="footer">
         <div class="container">Footer</div>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
     <script src="./assets/js/main.js"></script>
