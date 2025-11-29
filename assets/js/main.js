@@ -59,5 +59,26 @@ rewiewSlider.addEventListener('mousemove', (e) => {
 });    
 }
 
+const accordion = document.querySelectorAll(".accordion__item");
+     if (accordion.length > 0) {
+        accordion.forEach((el) => {
+          el.addEventListener("click", (e) => {
+            const self = e.currentTarget;
+            const control = self.querySelector(".accordion__item--control");
+            const content = self.querySelector(".accordion__item--content");
+            if (self.classList.contains("open")) {
+              self.classList.remove("open");
+              control.setAttribute("aria-expanded", false);
+              content.setAttribute("aria-hidden", true);
+              return;
+            }
+            accordion.forEach((el) => {
+              el.classList.remove("open");
+            });
+            self.classList.toggle("open");
+          });
+        });
+      }
+
 
 

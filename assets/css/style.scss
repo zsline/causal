@@ -75,8 +75,16 @@ body{
 }
 h2{
   font-family: 'Lora', serif;
+  font-weight: 500;
   font-size: clamp(4.44rem, calc(-1.5rem + 7.92vw), 8rem);
   line-height: 95%;
+  strong{
+    font-weight: inherit;
+  }
+}
+h3{
+  font-size: clamp(1.25rem, calc(1.18rem + 0.27vw), 1.5rem);
+  font-weight: 500;
 }
 h4{
   font-family: "Montserrat", sans-serif;
@@ -1129,9 +1137,6 @@ h4{
         font-weight: 400;
       }
     }
-  .result{
-
-  }
 }
 .faq{
   padding-top: clamp(3.38rem, calc(0.33rem + 11.34vw), 13.94rem);
@@ -1142,8 +1147,122 @@ h4{
     max-width: 222px;
     font-size: 20px;
   }
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
   &__accordion{
     width: 66.5%;
+    
+  }
+}
+.accordion__item--control {
+  width: 100%;
+  padding: clamp(0.75rem, calc(0.46rem + 1.46vw), 1.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  outline: none;
+  border: none; 
+  border-bottom: 1px solid #fff;
+}
+.accordion__item--icon {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  &::after{
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 2px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s;
+      }
+}
+.accordion__item.open .accordion__item--icon::before{
+  height: 0;
+}
+.accordion__item--content {
+  padding: 0 24px; color:
+  #ccc;
+  line-height: 126%;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+  strong{
+    color: var(--accent);
+    font-weight: 500;
+  }
+p{
+  font-size: clamp(1rem, calc(0.93rem + 0.27vw), 1.25rem) !important;
+ }
+ul{
+  list-style: disc;
+  padding-left: 24px;
+  li{
+  font-size: clamp(1rem, calc(0.93rem + 0.27vw), 1.25rem) !important;
+  }
+} 
+ol{
+  list-style: decimal;
+  padding-left: 24px;
+  li{
+  font-size: clamp(1rem, calc(0.93rem + 0.27vw), 1.25rem) !important;
+  }
+ } 
+}
+.open .accordion__item--content { 
+ max-height: max-content;
+ padding: 24px; 
+}
+
+.step{
+  padding-top: clamp(6.25rem, calc(4.99rem + 4.7vw), 10.63rem);
+  &__title{
+    position: relative;
+    .key{
+      position: absolute;
+      left: 7%;
+      bottom: 30%;
+    }
+  }
+  h2{
+    position: relative;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    svg{
+      position: absolute;
+      right: 0;
+      bottom: -140px;
+    }
+    strong{
+      color: var(--accent);
+    }
+  }
+  &__subtitle{
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 66px;
   }
 }
 
