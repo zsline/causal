@@ -521,12 +521,24 @@ form p input[type="submit"] {
   width: clamp(8.5rem, calc(5.68rem + 10.5vw), 17.63rem);
 }
 
-.front-page .header {
+.wrapper {
+  padding-top: clamp(18.44rem, calc(16.81rem + 6.04vw), 24.06rem);
+}
+
+.wrapper.front-page {
+  padding-top: 0;
+}
+
+.wrapper .header__logo path {
+  fill: #fff;
+}
+
+.wrapper.front-page .header {
   --text: #000;
   color: var(--text);
 }
 
-.front-page .header svg path {
+.wrapper.front-page .header svg path {
   fill: var(--text);
 }
 
@@ -2491,6 +2503,10 @@ form p input[type="submit"] {
             align-items: start;
     gap: 16px;
   }
+}
+
+.about-page .social {
+  margin-bottom: clamp(6.75rem, calc(5rem + 6.51vw), 12.81rem);
 }
 
 .footer {
