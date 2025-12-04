@@ -103,3 +103,13 @@
   font-style: normal;
   font-display: swap;
 }
+/* Anton 400 */
+@font-face {
+  font-family: 'Anton';
+  src: url('../fonts/Anton-Regular.woff2') format('woff2'),
+       url('../fonts/Anton-Regular.woff') format('woff'),
+       url('../fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

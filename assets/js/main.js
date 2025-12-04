@@ -80,5 +80,40 @@ const accordion = document.querySelectorAll(".accordion__item");
         });
       }
 
+const blogSlider = document.querySelector('.home-blog__slider');
+  if(blogSlider){
+  new Swiper(blogSlider, {
+    slidesPerView: 1,
+    mousewheel: true,
+      pagination: {
+    el: '.home-blog__pagination',
+  },
+  breakpoints: {
+    440: {
+    slidesPerView: 'auto',
+    }
+  }
+  })
+}
+// const historySlider = document.querySelector('.reviews__wrapper');
+// if(historySlider){
+//     new Swiper(historySlider, {
+//     slidesPerView: 'auto',
+//     mousewheel: true,
+//   })
+// }
 
-
+const items = document.querySelectorAll('.footer__nav--item');
+if(items){
+  items.forEach(item => {
+    const title = item.querySelector('.footer__nav--title');
+    title.addEventListener('click', () => {
+      if (item.classList.contains('open')) {
+        item.classList.remove('open');
+        return;
+      }
+      items.forEach(i => i.classList.remove('open'));
+      item.classList.add('open');
+    });
+  });
+}
