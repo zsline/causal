@@ -637,6 +637,10 @@ form{
     z-index: -1;
   }
   &__offer{
+    h2{
+      transform: translateX(80%);
+      opacity: 0;
+    }
     margin-left: 50%;
     &--subtitle{
       max-width: 556px;
@@ -644,7 +648,6 @@ form{
     }
   }
 }
-
 .about{
   padding-top: 170px;
   position: relative;

@@ -802,6 +802,12 @@ form p input[type="submit"] {
   margin-left: 50%;
 }
 
+.happiness__offer h2 {
+  -webkit-transform: translateX(80%);
+          transform: translateX(80%);
+  opacity: 0;
+}
+
 .happiness__offer--subtitle {
   max-width: 556px;
   margin-top: 40px;
