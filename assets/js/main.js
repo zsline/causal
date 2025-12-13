@@ -117,3 +117,14 @@ if(items){
     });
   });
 }
+
+const minTitle = document.querySelectorAll('.min-title');
+function newMinTitle(title) {
+  return `[&nbsp;&nbsp;${title}&nbsp;&nbsp;]`;
+}
+if(minTitle.length > 0){
+  minTitle.forEach(el => {
+    title = el.innerText;
+    el.innerHTML = newMinTitle(title);
+  });
+}
