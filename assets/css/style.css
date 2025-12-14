@@ -713,6 +713,7 @@ form p input[type="submit"] {
   position: relative;
   width: 50%;
   height: 100%;
+  overflow: hidden;
 }
 
 .hero__poster--star {
@@ -803,8 +804,8 @@ form p input[type="submit"] {
 }
 
 .happiness__offer h2 {
-  -webkit-transform: translateX(80%);
-          transform: translateX(80%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   opacity: 0;
 }
 
@@ -992,6 +993,9 @@ form p input[type="submit"] {
 
 .couching h2 {
   max-width: 991px;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
 }
 
 .couching__footer {
@@ -1080,12 +1084,18 @@ form p input[type="submit"] {
 
 .whot__img--text span:nth-child(1) {
   color: var(--accent);
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
 }
 
 .whot__img--text span:nth-child(2) {
   color: var(--green);
   margin-top: auto;
   text-align: end;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  opacity: 0;
 }
 
 .whot__content {

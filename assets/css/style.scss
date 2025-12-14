@@ -564,6 +564,7 @@ form{
       position: relative;
       width: 50%;
       height: 100%;
+      overflow: hidden;
       &--star{
         position: absolute;
         top: 24px;
@@ -638,7 +639,7 @@ form{
   }
   &__offer{
     h2{
-      transform: translateX(80%);
+      transform: translateX(100%);
       opacity: 0;
     }
     margin-left: 50%;
@@ -803,6 +804,8 @@ form{
   }
   h2{
     max-width: 991px;
+    transform: translateX(-100%);
+    opacity: 0;
   }
   &__footer{
     height: clamp(22.94rem, calc(19.56rem + 12.55vw), 34.63rem);
@@ -848,7 +851,6 @@ form{
     margin-top: 67px;
     display: flex;
     img{
-
       width: 70%;
       height: clamp(29.44rem, calc(21.34rem + 30.13vw), 57.5rem);
       object-fit: cover;
@@ -864,11 +866,15 @@ form{
         height: 100%;
         &:nth-child(1){
           color: var(--accent);
+          transform: translateY(100%);
+          opacity: 0;
         }
         &:nth-child(2){
           color: var(--green);
           margin-top: auto;
           text-align: end;
+          transform: translateY(-100%);
+          opacity: 0;
         }
       }
     }
