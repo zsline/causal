@@ -1,6 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
-const mq = window.matchMedia("(min-width: 1821px)");
+const mq = window.matchMedia("(min-width: 560px)");
 
 function initDesktop() {
   animateSite();
@@ -65,15 +65,15 @@ function animateSite(){
         },
         scale: 1.2
     });
-    gsap.to('.happiness__offer h2', {
+    gsap.from('.happiness__offer h2', {
         scrollTrigger:{
             trigger: '.happiness',
             start: 'top bottom',
             end: 'top top',
             // scrub: true
         },
-        x: 0,
-        opacity: 1,
+        xPercent: 100,
+        opacity: 0,
         duration: 2
     });
     gsap.from('.couching__whot h2', {
@@ -83,33 +83,56 @@ function animateSite(){
             end: 'top top',
             // scrub: true
         },
-        x: -300,
-        opacity: 1,
+        xPercent: -100,
+        opacity: 0,
         duration: 2
     });
-
-    gsap.to('.whot__img--text span:nth-child(1)', {
+    gsap.from('.principles h2', {
+        scrollTrigger:{
+            trigger: '.principles',
+            start: 'top bottom',
+            end: 'top top',
+            // scrub: true
+        },
+        xPercent: -100,
+        opacity: 0,
+        duration: 2
+    });
+    gsap.from('.whot__img--text span:nth-child(1)', {
+        scrollTrigger:{
+            trigger: '.whot__img--text',
+            start: 'top bottom',
+            end: 'top top',
+            scrub: true,
+        },
+        yPercent: 100,
+        opacity: 0,
+        duration: 2
+    });
+    gsap.from('.whot__img--text span:nth-child(2)', {
         scrollTrigger:{
             trigger: '.whot__img--text',
             start: 'top bottom',
             end: 'top top',
             scrub: true
         },
-        y: 0,
-        opacity: 1,
+        yPercent: -100,
+        opacity: 0,
         duration: 2
     });
-    gsap.to('.whot__img--text span:nth-child(2)', {
-        scrollTrigger:{
-            trigger: '.whot__img--text',
-            start: 'top bottom',
-            end: 'top top',
-            scrub: true
+    gsap.from(".whot__content p", {
+        scrollTrigger: {
+            trigger: ".whot__content",
+            start: "top 80%",
+            end: "bottom 60%",
+            toggleActions: "play none none none"
         },
-        y: 0,
-        opacity: 1,
-        duration: 2
-    });
+        yPercent: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.25
+        });
 }
 function handleMQ(e) {
   if (e.matches) {

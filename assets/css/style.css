@@ -804,12 +804,6 @@ form p input[type="submit"] {
   margin-left: 50%;
 }
 
-.happiness__offer h2 {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  opacity: 0;
-}
-
 .happiness__offer--subtitle {
   max-width: 556px;
   margin-top: 40px;
@@ -1082,18 +1076,12 @@ form p input[type="submit"] {
 
 .whot__img--text span:nth-child(1) {
   color: var(--accent);
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  opacity: 0;
 }
 
 .whot__img--text span:nth-child(2) {
   color: var(--green);
   margin-top: auto;
   text-align: end;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  opacity: 0;
 }
 
 .whot__content {
@@ -1122,7 +1110,7 @@ form p input[type="submit"] {
   width: 100%;
   height: 274px;
   background-color: #D9D9D9;
-  bottom: 14%;
+  bottom: 20%;
   left: 0;
   right: 0;
   z-index: -1;
