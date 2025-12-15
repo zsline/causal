@@ -1,8 +1,4 @@
-
-
-
-
-
+gsap.registerPlugin(ScrollTrigger);
 
 const mq = window.matchMedia("(min-width: 1821px)");
 
@@ -17,10 +13,9 @@ function destroyDesktop() {
   console.log("JS выключен ( <= 560px )");
 }
 function animateText(){
-    gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline({
     scrollTrigger: {
-        trigger: ".about__img",
+        trigger: ".about__wrapper",
         start: "top bottom",
         end: "bottom top",
         scrub: true,
@@ -54,7 +49,7 @@ function animateText(){
     );
 }
 function animateSite(){
-    gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+    gsap.registerPlugin(ScrollSmoother);
     ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
