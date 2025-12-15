@@ -3966,8 +3966,31 @@ form p input[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  gap: 40px;
   margin-top: clamp(3rem, calc(2.51rem + 1.81vw), 4.69rem);
   padding-bottom: 136px;
+}
+
+.remap-creation__wrapper--img {
+  position: relative;
+}
+
+.remap-creation__wrapper--img svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.remap-creation__wrapper--img img {
+  margin-left: auto;
 }
 
 .remap-creation__content {
@@ -3980,6 +4003,7 @@ form p input[type="submit"] {
   text-transform: uppercase;
   color: var(--green);
   margin-bottom: clamp(1.5rem, calc(1.19rem + 1.14vw), 2.56rem);
+  text-shadow: 0 1.55px 12.18px #4E4E4E25;
 }
 
 .remap-creation__content--title span {
@@ -3988,6 +4012,8 @@ form p input[type="submit"] {
   font-weight: 600;
   text-align: right;
   margin-bottom: 10px;
+  color: #000;
+  text-shadow: none;
 }
 
 .remap-creation__content p {
@@ -4061,24 +4087,161 @@ form p input[type="submit"] {
   margin-bottom: 77px;
 }
 
+.remap-register__items + p {
+  margin-bottom: 38px;
+  font-weight: 500;
+}
+
 .remap-register__item {
   padding: clamp(2rem, calc(1.77rem + 0.87vw), 2.81rem);
   background-color: #000;
   color: #fff;
   max-width: 33%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: clamp(25.63rem, calc(19.78rem + 21.74vw), 45.88rem);
 }
 
 .remap-register__item h4 {
   font-size: clamp(1.25rem, calc(1.03rem + 0.81vw), 2rem);
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: clamp(2.19rem, calc(1.81rem + 1.41vw), 3.5rem);
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 80px;
+}
+
+.remap-register__item h4::before {
+  position: absolute;
+  content: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 25C26.3155 24.2762 25.7275 23.6845 25 -1.10104e-06C24.2762 23.6845 23.6845 24.2726 1.10104e-06 25C23.6845 25.7238 24.2726 26.3155 25 50C25.7275 26.3155 26.3082 25.7275 50 25Z" fill="%23306049"/></svg>');
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+}
+
+.remap-register__item h4::after {
+  position: absolute;
+  content: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 25C26.3155 24.2762 25.7275 23.6845 25 -1.10104e-06C24.2762 23.6845 23.6845 24.2726 1.10104e-06 25C23.6845 25.7238 24.2726 26.3155 25 50C25.7275 26.3155 26.3082 25.7275 50 25Z" fill="%23306049"/></svg>');
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
 }
 
 .remap-register__item h4 strong {
   font-weight: inherit;
   color: var(--accent);
+}
+
+.remap-register__item span {
+  display: block;
+  font-size: clamp(1rem, calc(0.86rem + 0.54vw), 1.5rem);
+  font-weight: 600;
+  margin-bottom: clamp(1.06rem, calc(0.88rem + 0.67vw), 1.69rem);
+}
+
+.remap-register__item ul li {
+  padding-left: clamp(2.13rem, calc(1.58rem + 2.01vw), 4rem);
+  position: relative;
+  height: clamp(1.88rem, calc(1.57rem + 1.14vw), 2.94rem);
+  margin-bottom: 4px;
+}
+
+.remap-register__item ul li::before {
+  position: absolute;
+  content: url('data:image/svg+xml,<svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.4601 46.9202C22.7809 24.6946 22.2256 24.1428 0 23.4601C22.2256 22.7809 22.7775 22.2256 23.4601 0C24.1393 22.2256 24.6946 22.7775 46.9202 23.4601C24.6946 24.1428 24.1428 24.6878 23.4601 46.9202Z" fill="%23E3B891"/></svg>');
+  width: clamp(1.88rem, calc(1.57rem + 1.14vw), 2.94rem);
+  height: clamp(1.88rem, calc(1.57rem + 1.14vw), 2.94rem);
+  left: 0;
+  top: -25%;
+}
+
+.remap-register__item--footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: auto;
+  font-size: clamp(0.94rem, calc(0.78rem + 0.6vw), 1.5rem);
+  font-weight: 600;
+}
+
+.remap-register__item--footer a {
+  color: var(--accent);
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.remap-register__item--footer a::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  left: 0;
+  bottom: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.remap-register__item--footer a:hover::after {
+  bottom: 2px;
+}
+
+.remap-register__garanty h3 {
+  font-family: "Lora", sans-serif;
+  font-size: clamp(1.25rem, calc(0.89rem + 1.34vw), 2.5rem);
+  text-shadow: 0 2.35px 18.42px #4E4E4E25;
+  font-weight: 500;
+  margin-bottom: clamp(1.31rem, calc(0.92rem + 1.48vw), 2.69rem);
+}
+
+.remap-register__garanty h3 strong {
+  color: var(--green);
+  font-weight: inherit;
+}
+
+.remap-register__garanty--inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.31rem, calc(-0.9rem + 4.5vw), 4.5rem);
+}
+
+.remap-register__garanty--item {
+  background-color: #F6F6F6;
+  padding: clamp(0.63rem, calc(0.44rem + 0.67vw), 1.25rem);
+}
+
+.remap-register__garanty--item h4 {
+  font-size: clamp(0.75rem, calc(0.53rem + 0.81vw), 1.5rem);
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: clamp(0.56rem, calc(0.4rem + 0.6vw), 1.13rem);
+}
+
+.remap-register__garanty--item p {
+  font-size: clamp(0.75rem, calc(0.68rem + 0.27vw), 1rem);
 }
 
 .remap .footer {
