@@ -1319,6 +1319,7 @@ form p input[type="submit"] {
   line-height: 100%;
   bottom: 15px;
   right: 17px;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -1373,6 +1374,7 @@ form p input[type="submit"] {
   color: var(--text);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  z-index: 0;
 }
 
 .reviews__item--content p {
@@ -1430,6 +1432,32 @@ form p input[type="submit"] {
 
 .reviews__wrapper:has(.reviews__item.open) .reviews__item.open img {
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .reviews__item {
+    min-width: clamp(18.75rem, calc(17.23rem + 5.64vw), 24rem);
+    position: relative;
+  }
+  .reviews__item--content {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    left: 0;
+    top: 0;
+  }
+  .reviews__item--content p {
+    width: 90%;
+    margin-left: 10px;
+    margin-right: auto;
+  }
+  .reviews__item.open .reviews__item--content {
+    padding: 20px 0px 18px 0px;
+    height: 100%;
+  }
+  .reviews__wrapper:has(.reviews__item.open) .reviews__item.open {
+    min-width: clamp(18.75rem, calc(17.23rem + 5.64vw), 24rem);
+  }
 }
 
 .result {
