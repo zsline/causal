@@ -4244,6 +4244,40 @@ form p input[type="submit"] {
   font-size: clamp(0.75rem, calc(0.68rem + 0.27vw), 1rem);
 }
 
+.remap-faq .accordion {
+  background-color: #F9F9F9;
+  padding-bottom: 48px;
+}
+
+.remap-faq .accordion__item {
+  border-bottom: none;
+}
+
+.remap-faq .accordion__item p {
+  color: #000;
+  margin-left: 16px;
+}
+
+.remap-faq .accordion__item--control {
+  border-bottom: none;
+  position: relative;
+}
+
+.remap-faq .accordion__item--control::before {
+  position: absolute;
+  content: '';
+  width: 95%;
+  height: 1px;
+  background-color: #6B6B6B81;
+  left: auto;
+  right: auto;
+  bottom: 0;
+}
+
+.remap-faq .accordion__item--icon::after, .remap-faq .accordion__item--icon::before {
+  background-color: #000;
+}
+
 .remap .footer {
   margin-top: 84px;
 }

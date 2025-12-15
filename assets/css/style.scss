@@ -3413,6 +3413,38 @@ ol{
       }
     }
   }
+  &-faq{
+    .accordion{
+      background-color: #F9F9F9;
+      padding-bottom: 48px;
+      &__item{
+        border-bottom: none;
+        p{
+          color: #000;
+          margin-left: 16px;
+        }
+        &--control{
+          border-bottom: none;
+          position: relative;
+          &::before{
+            position: absolute;
+            content: '';
+            width: 95%;
+            height: 1px;
+            background-color: #6B6B6B81;
+            left: auto;
+            right: auto;
+            bottom: 0;
+          }
+        }
+        &--icon{
+          &::after, &::before{
+            background-color: #000;
+          }
+        }
+      }
+    }
+  }
   .footer{
     margin-top: 84px;
   }
