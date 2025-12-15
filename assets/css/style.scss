@@ -804,8 +804,8 @@ form{
   }
   h2{
     max-width: 991px;
-    transform: translateX(-100%);
-    opacity: 0;
+    // transform: translateX(-100%);
+    // opacity: 0;
   }
   &__footer{
     height: clamp(22.94rem, calc(19.56rem + 12.55vw), 34.63rem);
@@ -920,7 +920,7 @@ form{
     }
     &:nth-child(1) &--inner{
       max-width: 341px;
-      margin-top: 253px;
+      // margin-top: 253px;
     }
     &:nth-child(2) &--inner{
       max-width: 621px;
@@ -939,7 +939,7 @@ form{
       max-width: 390px;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 260px;
+      // margin-top: 260px;
       img{
         max-width: 336px;
       }

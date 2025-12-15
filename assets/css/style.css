@@ -993,9 +993,6 @@ form p input[type="submit"] {
 
 .couching h2 {
   max-width: 991px;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  opacity: 0;
 }
 
 .couching__footer {
@@ -1155,7 +1152,6 @@ form p input[type="submit"] {
 
 .principles__item:nth-child(1) .principles__item--inner {
   max-width: 341px;
-  margin-top: 253px;
 }
 
 .principles__item:nth-child(2) .principles__item--inner {
@@ -1179,7 +1175,6 @@ form p input[type="submit"] {
   max-width: 390px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 260px;
 }
 
 .principles__item:nth-child(4) .principles__item--inner img {
