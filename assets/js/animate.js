@@ -17,6 +17,7 @@ function destroyDesktop() {
   console.log("JS выключен ( <= 560px )");
 }
 function animateText(){
+    gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".about__img",
