@@ -8,12 +8,49 @@ const mq = window.matchMedia("(min-width: 1821px)");
 
 function initDesktop() {
   animateSite();
+  animateText();
   console.log("JS включён ( > 560px )");
 }
 
 function destroyDesktop() {
-  // если нужно — очистка
+  animateText();
   console.log("JS выключен ( <= 560px )");
+}
+function animateText(){
+    const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".about__img",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+        // markers: true 
+    }
+    });
+       /* MIN — по часовой */
+    tl.fromTo("#tp1",
+    { attr: { startOffset: "0%" } },
+    { attr: { startOffset: "-100%" }, ease: "none" },
+    0
+    );
+
+    tl.fromTo("#tp2",
+    { attr: { startOffset: "100%" } },
+    { attr: { startOffset: "0%" }, ease: "none" },
+    0
+    );
+
+    /* MAX — против часовой */
+    tl.fromTo("#max-tp1",
+    { attr: { startOffset: "0%" } },
+    { attr: { startOffset: "100%" }, ease: "none" },
+    0
+    );
+
+    tl.fromTo("#max-tp2",
+    { attr: { startOffset: "-100%" } },
+    { attr: { startOffset: "0%" }, ease: "none" },
+    0
+    );
 }
 function animateSite(){
     gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
@@ -32,8 +69,6 @@ function animateSite(){
         },
         scale: 1.2
     });
-
-
     gsap.to('.happiness__offer h2', {
         scrollTrigger:{
             trigger: '.happiness',
@@ -45,10 +80,6 @@ function animateSite(){
         opacity: 1,
         duration: 2
     });
-
-
-
-
     gsap.from('.couching__whot h2', {
         scrollTrigger:{
             trigger: '.couching__whot',
@@ -83,51 +114,6 @@ function animateSite(){
         opacity: 1,
         duration: 2
     });
-    // gsap.to('.principles__line', {
-    //     scrollTrigger:{
-    //         trigger: '.principles',
-    //         start: 'top bottom',
-    //         end: 'top top',
-    //         scrub: true
-    //     },
-    //     y: -300,
-    // });
-
-    const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".about__img",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-        // markers: true 
-    }
-    });
-
-    /* MIN — по часовой */
-    tl.fromTo("#tp1",
-    { attr: { startOffset: "0%" } },
-    { attr: { startOffset: "-100%" }, ease: "none" },
-    0
-    );
-
-    tl.fromTo("#tp2",
-    { attr: { startOffset: "100%" } },
-    { attr: { startOffset: "0%" }, ease: "none" },
-    0
-    );
-
-    /* MAX — против часовой */
-    tl.fromTo("#max-tp1",
-    { attr: { startOffset: "0%" } },
-    { attr: { startOffset: "100%" }, ease: "none" },
-    0
-    );
-
-    tl.fromTo("#max-tp2",
-    { attr: { startOffset: "-100%" } },
-    { attr: { startOffset: "0%" }, ease: "none" },
-    0
-    );
 }
 function handleMQ(e) {
   if (e.matches) {
