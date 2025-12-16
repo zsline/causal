@@ -354,6 +354,16 @@ form{
     margin-left: 14px;
   }
 }
+.big-link-noarrow{
+  font-size:  clamp(1.25rem, calc(0.89rem + 1.34vw), 2.5rem);
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: underline;
+  display: block;
+  &::after{
+    display: none;
+  }
+}
 .header{
     position: absolute;
     top: 0;
@@ -3051,6 +3061,9 @@ ol{
     padding-top: clamp(8.5rem, calc(6.7rem + 6.71vw), 14.75rem);
     &__title{
       text-align: center;
+      max-width: 82vw;
+      margin-left: auto;
+      margin-right: auto;
       h2{
         max-width: 1073px;
         margin-left: auto;
@@ -3069,6 +3082,11 @@ ol{
       }
     }
     &__wrapper{
+      margin-left: 12vw;
+      margin-top: clamp(1.88rem, calc(1.28rem + 2.21vw), 3.94rem);
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
       & + p {
         text-align: center;
         margin-top: 28px;
@@ -3085,7 +3103,46 @@ ol{
             margin-top: clamp(1.69rem, calc(1.53rem + 0.6vw), 2.25rem);
             text-align: center;
           }
+        }
       }
+      &--img{
+        max-width: 390px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        img{
+          margin-bottom: clamp(1.88rem, calc(1.73rem + 0.54vw), 2.38rem);
+        }
+        p{
+          font-size: clamp(1rem, calc(0.86rem + 0.54vw), 1.5rem);
+        }
+      }
+      &--list{
+        text-align-last: left;
+        ul{
+          margin-right: clamp(0rem, calc(-0.72rem + 2.68vw), 2.5rem);
+          li{
+            font-family: "Lora", sans-serif;
+            font-size: clamp(1.13rem, calc(0.73rem + 1.48vw), 2.5rem);
+            color: #000;
+            opacity: 0.3;
+            line-height: 100%;
+            padding: clamp(1.56rem, calc(1.11rem + 1.68vw), 3.13rem) clamp(0.94rem, calc(0.67rem + 1.01vw), 1.88rem);
+            position: relative;
+            --line-opacity: 0.15;
+            &::before{
+              position: absolute;
+              content:'';
+              top: -1px;
+              bottom: -1px;
+              left: 0;
+              right: 0;
+              border-top: 1px solid #000;
+              border-bottom: 1px solid #000;
+              opacity: var(--line-opacity);
+            }
+          }
+        }
       }
     }
   }
@@ -3178,11 +3235,8 @@ ol{
         margin-top: clamp(1.88rem, calc(1.57rem + 1.14vw), 2.94rem);
         margin-bottom: clamp(1.88rem, calc(1.71rem + 0.6vw), 2.44rem);
         text-shadow: 0 5px 37px #4E4E4E25;
-        & + .big-link{
+        & + .big-link-noarrow{
           text-align: center;
-          &::after{
-            display: none;
-          }
         }
       }
     }
@@ -3414,6 +3468,7 @@ ol{
     }
   }
   &-faq{
+    margin-bottom: 127px;
     .accordion{
       background-color: #F9F9F9;
       padding-bottom: 48px;
@@ -3443,6 +3498,29 @@ ol{
           }
         }
       }
+    }
+  }
+  &-start{
+    text-align: center;
+    h2{
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: clamp(1.88rem, calc(1.3rem + 2.15vw), 3.88rem);
+      strong{
+        color: var(--green);
+      }
+    }
+    p{
+      max-width: 46%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: clamp(1.88rem, calc(1.3rem + 2.15vw), 3.88rem);
+    }
+    .big-link-noarrow{
+      margin-bottom: 18px;
     }
   }
   .footer{
