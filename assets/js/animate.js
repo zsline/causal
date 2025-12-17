@@ -79,6 +79,23 @@ function animateSite(){
         },
         scale: 1.2
     });
+        gsap.to('.remap-hero__poster img', {
+        scrollTrigger:{
+            trigger: '.remap-hero__poster',
+            start: 'top top',
+            scrub: true
+        },
+        scale: 1
+    });
+        gsap.to('.hero__offer--remap', {
+        scrollTrigger:{
+            trigger: '.hero',
+            start: 'top top',
+            scrub: true
+        },
+        yPercent: 160,
+        opacity: 0
+    });
     gsap.from('.happiness__offer h2', {
         scrollTrigger:{
             trigger: '.happiness',
