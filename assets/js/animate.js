@@ -2,9 +2,35 @@ gsap.registerPlugin(ScrollTrigger);
 
 const mq = window.matchMedia("(min-width: 560px)");
 
+function createSidebarLinks(){
+    let startValue = window.innerWidth < 860 ? "top+=40 top" : "top-=20 top";
+    ScrollTrigger.create({
+    trigger: ".blog-inner__wrapper",
+    start: startValue,
+    end: "bottom bottom-=300",
+    pin: ".sidebar",
+    pinSpacing: false,
+    });
+    document.addEventListener("click", (e) => {
+    const link = e.target.closest(".sidebar__list a");
+    if (!link) return;
+
+    const id = link.getAttribute("href");
+    if (!id.startsWith("#")) return;
+
+    const target = document.querySelector(id);
+    if (!target) return;
+
+    e.preventDefault();
+
+    ScrollSmoother.get().scrollTo(target, true, "top top");
+    });
+}
+
 function initDesktop() {
   animateSite();
   animateText();
+  createSidebarLinks();
     const smoother = ScrollSmoother.get();
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener("click", e => {
@@ -19,7 +45,16 @@ function initDesktop() {
     animateaList(".result__list li", "#FFFFFF", "#E3B891");
 }
 function initMobile(){
+        gsap.registerPlugin(ScrollSmoother);
+    ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.2,          // плавность
+    effects: true,
+    smoothTouch: 0.1      // мобильные
+    });
     animateText();
+    createSidebarLinks();
     animateaList(".remap-format__wrapper--list li", "#000000", "#306049");
      animateaList(".result__list li", "#FFFFFF", "#E3B891");
 }

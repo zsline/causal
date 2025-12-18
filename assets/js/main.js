@@ -128,3 +128,97 @@ if(minTitle.length > 0){
     el.innerHTML = newMinTitle(title);
   });
 }
+
+
+
+// ======== Формирование Содержания на странице Single ==========
+
+const singleContent = document.querySelector('.blog-inner__content');
+const singleList = document.querySelector('.sidebar__list'); // <ol> основной
+
+if (singleContent && singleList) {
+  const headings = singleContent.querySelectorAll('h2, h3');
+
+  let h2Index = 0;
+  let h3Index = 0;
+  let currentSubList = null; // для хранения вложенного списка <ol>
+
+  headings.forEach((heading) => {
+    const tag = heading.tagName.toLowerCase();
+    const id = `section-${Math.random().toString(36).substr(2, 5)}`;
+    heading.id = id;
+
+    if (tag === 'h2') {
+      h2Index++;
+      h3Index = 0; // сбрасываем счётчик подзаголовков
+      currentSubList = null; // сбрасываем текущий подсписок
+
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = `${h2Index}. ${heading.textContent.trim()}`;
+      li.appendChild(a);
+      singleList.appendChild(li);
+
+      // создаём подсписок для возможных h3
+      currentSubList = document.createElement('ol');
+      li.appendChild(currentSubList);
+
+    } else if (tag === 'h3' && currentSubList) {
+      h3Index++;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = `${h2Index}.${h3Index} ${heading.textContent.trim()}`;
+      a.style.paddingLeft = '8px';
+      li.appendChild(a);
+      currentSubList.appendChild(li);
+    }
+  });
+
+  // Подсветка активных ссылок
+  const sections = singleContent.querySelectorAll('h2, h3');
+  const links = singleList.querySelectorAll('a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const link = singleList.querySelector(`a[href="#${id}"]`);
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        if (link) link.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: '0% 0px -90% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => observer.observe(section));
+}
+
+
+
+// ===================================================================
+// =============== Закрытие и Открытие содержания =================
+
+// const singleAside = document.querySelector('.sidebar');
+// const openSingleAside = document.querySelector('.single__aside--open');
+// const closeSingleAside = document.querySelector('.sidebar__title--close');
+// if(singleAside){
+//   function openAside() {
+//     singleAside.classList.remove('close');
+//     openSingleAside.style.display = 'none';
+//   }
+//   function closeAside() {
+//     singleAside.classList.add('close');
+//     openSingleAside.style.display = 'flex';
+//   }
+//   closeSingleAside.addEventListener('click', () => {
+//     closeAside();
+//   });
+//   openSingleAside.addEventListener('click', () => {
+//     openAside();
+//   });
+// }
+
