@@ -128,8 +128,55 @@ if(minTitle.length > 0){
     el.innerHTML = newMinTitle(title);
   });
 }
+// ========= плавающее меню ==============
+let lastScroll = 0;
+const nav = document.querySelector('.site-nav');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    // скролл вниз
+    nav.classList.add('hide');
+  } else {
+    // скролл вверх
+    nav.classList.remove('hide');
+  }
+
+  lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+});
+// ========= переключение табов =============
+const resultsItems = document.querySelectorAll('.result__info--item');
+const resultTabs = document.querySelectorAll('.result__list li');
+switchTabs(resultsItems, resultTabs);
+
+const formatItems = document.querySelectorAll('.remap-format__item');
+const formatTabs = document.querySelectorAll('.remap-format__wrapper--list li');
+switchTabs(formatItems, formatTabs);
 
 
+function switchTabs(resultsItems, resultTabs){
+  if(resultsItems){
+    resultTabs.forEach(tab => {
+      tab.addEventListener('click', (e) =>{
+        if(e.target.classList.contains('active')){
+          return;
+        } else {
+          resultTabs.forEach(el => {
+            el.classList.remove('active');
+          });
+          e.target.classList.add('active');
+          resultsItems.forEach(item => {
+            item.classList.remove('active');
+            if(item.dataset.info && item.dataset.info == e.target.dataset.tab){
+              item.classList.add('active');
+            } 
+          })
+        }
+      })
+    })
+  }
+}
 
 // ======== Формирование Содержания на странице Single ==========
 
@@ -197,6 +244,14 @@ if (singleContent && singleList) {
   sections.forEach(section => observer.observe(section));
 }
 
+document.querySelector('.site-nav__top')?.addEventListener('click', e => {
+  e.preventDefault();
+
+  const smoother = ScrollSmoother.get();
+  if (smoother) {
+    smoother.scrollTo(0, true);
+  }
+});
 
 
 // ===================================================================

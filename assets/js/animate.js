@@ -29,42 +29,30 @@ function createSidebarLinks(){
 
 function initDesktop() {
   animateSite();
-  animateText();
+  animateText(".about__wrapper", "#tp1", "#tp2", "#max-tp1", "#max-tp2");
+  animateText(".faq__img--inner", "#faq-tp1", "#faq-tp2", "#faq-max-tp1", "#faq-max-tp2");
   createSidebarLinks();
-    const smoother = ScrollSmoother.get();
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener("click", e => {
-            const id = link.getAttribute("href");
-            if (id.length > 1) {
-            e.preventDefault();
-            smoother.scrollTo(id, true);
-            }
-        });
-    });
-    animateaList(".remap-format__wrapper--list li", "#000000", "#306049");
-    animateaList(".result__list li", "#FFFFFF", "#E3B891");
+
 }
 function initMobile(){
-        gsap.registerPlugin(ScrollSmoother);
-    ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 1.2,          // плавность
-    effects: true,
-    smoothTouch: 0.1      // мобильные
-    });
-    animateText();
+    animateText(".about__wrapper", "#tp1", "#tp2", "#max-tp1", "#max-tp1");
     createSidebarLinks();
-    animateaList(".remap-format__wrapper--list li", "#000000", "#306049");
-     animateaList(".result__list li", "#FFFFFF", "#E3B891");
+    gsap.to('.hero__poster--author', {
+    scrollTrigger:{
+        trigger: '.hero',
+        start: 'top top',
+        scrub: true
+    },
+    scale: 1.2
+    });
 }
 function destroyDesktop() {
   console.log("JS выключен ( <= 560px )");
 }
-function animateText(){
+function animateText(trigger, tp1, tp2 , max1, max2 ){
     const tl = gsap.timeline({
     scrollTrigger: {
-        trigger: ".about__wrapper",
+        trigger: trigger,
         start: "top bottom",
         end: "bottom top",
         scrub: true,
@@ -72,26 +60,26 @@ function animateText(){
     }
     });
        /* MIN — по часовой */
-    tl.fromTo("#tp1",
+    tl.fromTo(tp1,
     { attr: { startOffset: "0%" } },
     { attr: { startOffset: "-100%" }, ease: "none" },
     0
     );
 
-    tl.fromTo("#tp2",
+    tl.fromTo(tp2,
     { attr: { startOffset: "100%" } },
     { attr: { startOffset: "0%" }, ease: "none" },
     0
     );
 
     /* MAX — против часовой */
-    tl.fromTo("#max-tp1",
+    tl.fromTo(max1,
     { attr: { startOffset: "0%" } },
     { attr: { startOffset: "100%" }, ease: "none" },
     0
     );
 
-    tl.fromTo("#max-tp2",
+    tl.fromTo(max2,
     { attr: { startOffset: "-100%" } },
     { attr: { startOffset: "0%" }, ease: "none" },
     0
@@ -199,7 +187,21 @@ function animateSite(){
         ease: "power2.out",
         stagger: 0.25
     });
-
+gsap.utils.toArray(".formats__item").forEach(item => {
+  gsap.fromTo(
+    item,
+    { opacity: 1 },
+    {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: item,
+        start: "200px top",
+        end: "bottom top",
+        scrub: true,
+      }
+    }
+  );
+});
 }
 function handleMQ(e) {
   if (e.matches) {
@@ -244,4 +246,12 @@ function animateaList(list, color_one = "rgba(0, 0, 0, 0.31)", color_two = "#338
         ease: "none"    
     }, 1);
     });
+}
+const formatsItems = document.querySelectorAll('.formats__item');
+if(formatsItems.length > 0){
+    formatsItems.forEach(item => {
+        if(window.innerWidth < 760){
+            item.dataset.speed = 1.1; 
+        }
+    })
 }
