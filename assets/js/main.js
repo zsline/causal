@@ -25,40 +25,6 @@ if(reviewItems.length){
     });
 }
 
-
-const rewiewSlider = document.querySelector('.reviews__wrapper');
-if(rewiewSlider){
-
-let isDown = false;
-let startX;
-let scrollLeft;
-
-rewiewSlider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  rewiewSlider.classList.add('dragging');
-  startX = e.pageX - rewiewSlider.offsetLeft;
-  scrollLeft = rewiewSlider.scrollLeft;
-});
-
-rewiewSlider.addEventListener('mouseleave', () => {
-  isDown = false;
-  rewiewSlider.classList.remove('dragging');
-});
-
-rewiewSlider.addEventListener('mouseup', () => {
-  isDown = false;
-  rewiewSlider.classList.remove('dragging');
-});
-
-rewiewSlider.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - rewiewSlider.offsetLeft;
-  const walk = (x - startX) * 1.3; // скорость (1.3 — норм)
-  rewiewSlider.scrollLeft = scrollLeft - walk;
-});    
-}
-
 const accordion = document.querySelectorAll(".accordion__item");
      if (accordion.length > 0) {
         accordion.forEach((el) => {
@@ -95,13 +61,6 @@ const blogSlider = document.querySelector('.home-blog__slider');
   }
   })
 }
-// const historySlider = document.querySelector('.reviews__wrapper');
-// if(historySlider){
-//     new Swiper(historySlider, {
-//     slidesPerView: 'auto',
-//     mousewheel: true,
-//   })
-// }
 
 const items = document.querySelectorAll('.footer__nav--item');
 if(items){
@@ -253,8 +212,96 @@ document.querySelector('.site-nav__top')?.addEventListener('click', e => {
   }
 });
 
+// ====== Функция для перетягивания любого блока ======
+function enableDragScroll(container, speed = 1.3) {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
 
-// ===================================================================
+  container.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return; // только левая кнопка
+    if (e.target.closest('.reviews__item--btn')) return; // кнопки не участвуют в drag
+
+    isDown = true;
+    startX = e.clientX;
+    scrollLeft = container.scrollLeft;
+    container.setPointerCapture(e.pointerId); // захватываем все события pointer для контейнера
+    container.classList.add('dragging');
+    e.preventDefault();
+  });
+
+  container.addEventListener('pointermove', (e) => {
+    if (!isDown) return;
+    const walk = (e.clientX - startX) * speed;
+    container.scrollLeft = scrollLeft - walk;
+  });
+
+  container.addEventListener('pointerup', (e) => {
+    isDown = false;
+    container.classList.remove('dragging');
+    container.releasePointerCapture(e.pointerId);
+  });
+
+  container.addEventListener('pointerleave', (e) => {
+    isDown = false;
+    container.classList.remove('dragging');
+    container.releasePointerCapture(e.pointerId);
+  });
+}
+
+
+
+
+// ====== Подключаем перетягивание к блокам ======
+const resultSlider = document.querySelector('.remap-result__content--wrapper');
+if (resultSlider) enableDragScroll(resultSlider, 1.3);
+
+const reviewSlider = document.querySelector('.reviews__wrapper');
+if (reviewSlider) enableDragScroll(reviewSlider, 1.3);
+
+const programBox = document.querySelector('.remap-program__wrapper');
+if (programBox) enableDragScroll(programBox, 1.3);
+
+// ====== Кастомный ползунок ======
+const thumb = document.getElementById('program-thumb');
+function customThumb(scrollBox, thumb){
+  if (scrollBox && thumb) {
+    function updateThumb() {
+      const ratio = scrollBox.scrollLeft / (scrollBox.scrollWidth - scrollBox.clientWidth);
+      const max = scrollBox.clientWidth - thumb.offsetWidth;
+      thumb.style.left = ratio * max + 'px';
+    }
+    scrollBox.addEventListener('scroll', updateThumb);
+    let isThumbDragging = false;
+    let thumbStartX = 0;
+    thumb.addEventListener('mousedown', (e) => {
+      isThumbDragging = true;
+      thumbStartX = e.clientX - thumb.offsetLeft;
+      document.body.style.userSelect = 'none';
+    });
+    document.addEventListener('mouseup', () => {
+      isThumbDragging = false;
+      document.body.style.userSelect = '';
+    });
+    document.addEventListener('mousemove', (e) => {
+      if (!isThumbDragging) return;
+      const max = scrollBox.clientWidth - thumb.offsetWidth;
+      let pos = e.clientX - thumbStartX;
+      pos = Math.max(0, Math.min(pos, max));
+      thumb.style.left = pos + 'px';
+      const ratio = pos / max;
+      scrollBox.scrollLeft = ratio * (scrollBox.scrollWidth - scrollBox.clientWidth);
+    });
+    // Обновляем при загрузке и ресайзе
+    updateThumb();
+    window.addEventListener('resize', updateThumb);
+  }
+}
+
+customThumb(programBox, thumb);
+const resultBox = document.querySelector('.remap-result__content--wrapper');
+const resultThumb = document.querySelector('.result-thumb');
+customThumb(resultBox, resultThumb);
 // =============== Закрытие и Открытие содержания =================
 
 // const singleAside = document.querySelector('.sidebar');
@@ -276,4 +323,5 @@ document.querySelector('.site-nav__top')?.addEventListener('click', e => {
 //     openAside();
 //   });
 // }
+
 

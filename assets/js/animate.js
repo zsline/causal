@@ -35,7 +35,7 @@ function initDesktop() {
 
 }
 function initMobile(){
-    animateText(".about__wrapper", "#tp1", "#tp2", "#max-tp1", "#max-tp1");
+    animateText(".about__wrapper", "#tp1", "#tp2", "#max-tp1", "#max-tp2");
     createSidebarLinks();
     gsap.to('.hero__poster--author', {
     scrollTrigger:{
@@ -104,7 +104,7 @@ function animateSite(){
     });
         gsap.to('.remap-hero__poster img', {
         scrollTrigger:{
-            trigger: '.remap-hero__poster',
+            trigger: '.hero__wrapper',
             start: 'top top',
             scrub: true
         },
@@ -187,21 +187,23 @@ function animateSite(){
         ease: "power2.out",
         stagger: 0.25
     });
-gsap.utils.toArray(".formats__item").forEach(item => {
-  gsap.fromTo(
-    item,
-    { opacity: 1 },
-    {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: item,
-        start: "200px top",
-        end: "bottom top",
-        scrub: true,
-      }
+    if(window.innerWidth > 654){
+        gsap.utils.toArray(".formats__item").forEach(item => {
+          gsap.fromTo(
+            item,
+            { opacity: 1 },
+            {
+              opacity: 0,
+              scrollTrigger: {
+                trigger: item,
+                start: "center top",
+                end: "bottom top",
+                scrub: true,
+              }
+            }
+          );
+        });
     }
-  );
-});
 }
 function handleMQ(e) {
   if (e.matches) {
