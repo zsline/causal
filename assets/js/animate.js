@@ -36,6 +36,7 @@ function initDesktop() {
 }
 function initMobile(){
     animateText(".about__wrapper", "#tp1", "#tp2", "#max-tp1", "#max-tp2");
+    animateText(".faq__info--img", "#faq-tp1", "#faq-tp2", "#faq-max-tp1", "#faq-max-tp2");
     createSidebarLinks();
     gsap.to('.hero__poster--author', {
     scrollTrigger:{

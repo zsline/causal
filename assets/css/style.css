@@ -1034,8 +1034,8 @@ form p input[type="submit"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 428px;
-  height: 302px;
+  width: clamp(11.25rem, calc(-1.33rem + 46.79vw), 26.75rem);
+  height: clamp(5.63rem, calc(-5.12rem + 40vw), 18.88rem);
 }
 
 .couching__footer--anim svg {
@@ -1250,6 +1250,13 @@ form p input[type="submit"] {
 }
 
 @media (max-width: 440px) {
+  .couching__footer .star {
+    right: auto;
+    left: 40px;
+    top: 0;
+    width: 64px;
+    height: 64px;
+  }
   .whot__content--icons {
     position: relative;
   }
@@ -2024,6 +2031,16 @@ form p input[type="submit"] {
   }
 }
 
+@media (max-width: 490px) {
+  .step h2 svg {
+    width: 44px;
+    right: 80px;
+  }
+  .couching__footer--anim {
+    right: 0;
+  }
+}
+
 .formats {
   --text: var(--background);
   color: var(--text);
@@ -2341,6 +2358,7 @@ form p input[type="submit"] {
   max-width: 1233px;
   width: 70%;
   text-transform: uppercase;
+  font-size: clamp(2.69rem, calc(1.15rem + 5.7vw), 8rem);
 }
 
 .journal h3 {
@@ -2528,6 +2546,18 @@ form p input[type="submit"] {
   .journal__stops--img {
     width: 100%;
     margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 490px) {
+  .journal h2 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .journal h2 {
+    font-size: 34px;
   }
 }
 
@@ -3973,7 +4003,8 @@ form p input[type="submit"] {
 .remap-program .scroll-wrap .thumb {
   position: absolute;
   bottom: 8px;
-  left: var(--padding);
+  left: 0;
+  translate: calc((var(--padding) / 2));
   width: clamp(5.94rem, calc(4.42rem + 5.17vw), 8.56rem);
   height: clamp(1.44rem, calc(1.08rem + 1.23vw), 2.06rem);
   border-radius: 20px;
@@ -4228,6 +4259,35 @@ form p input[type="submit"] {
   z-index: 2;
 }
 
+.remap-program__module-last {
+  margin-left: -100px;
+}
+
+.remap-program__module-last--number {
+  font-family: "Lora", sans-serif;
+  font-size: 48px !important;
+  font-weight: 300;
+  color: var(--accent) !important;
+  position: relative;
+  top: 80%;
+}
+
+.remap-program__module-last--title::after {
+  display: none;
+}
+
+.remap-program__module-last--title::before {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: white;
+  border: 7px solid var(--accent);
+  bottom: -32px;
+  left: auto;
+  right: 0;
+  z-index: 2;
+}
+
 .remap-program__module--number {
   font-size: 24px;
   font-weight: 700;
@@ -4374,6 +4434,37 @@ form p input[type="submit"] {
 
 .remap-pilot h2 strong {
   color: var(--green);
+}
+
+.remap-pilot__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: clamp(0rem, calc(-1.41rem + 5.23vw), 4.88rem);
+}
+
+.remap-pilot__item--title {
+  font-size: clamp(2.5rem, calc(2.07rem + 1.61vw), 4rem);
+  font-weight: 600;
+  color: var(--green);
+  line-height: 223%;
+}
+
+.remap-pilot__item:nth-child(1) {
+  width: clamp(14.25rem, calc(13.31rem + 3.49vw), 17.5rem);
+}
+
+.remap-pilot__item:nth-child(2) {
+  width: clamp(14.25rem, calc(11.92rem + 8.66vw), 22.31rem);
+}
+
+.remap-pilot__item:nth-child(3) {
+  width: clamp(20.94rem, calc(17.64rem + 12.28vw), 32.38rem);
+}
+
+.remap-pilot__item p {
+  font-size: clamp(0.88rem, calc(0.77rem + 0.4vw), 1.25rem);
+  margin: 0;
 }
 
 .remap-reviews .reviews__wrapper + p {
@@ -4818,7 +4909,7 @@ form p input[type="submit"] {
     width: 55%;
   }
   .remap .big-link {
-    position: absolute;
+    position: relative;
     bottom: 0;
     right: 0;
     margin: 0;
@@ -4914,6 +5005,13 @@ form p input[type="submit"] {
             align-items: center;
     margin-left: 0;
     gap: 35px;
+  }
+  .remap-pilot__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 23px;
   }
 }
 
@@ -5116,7 +5214,7 @@ form p input[type="submit"] {
     margin-left: -12%;
   }
   .remap-whot h2 {
-    max-width: 56%;
+    max-width: 50%;
   }
   .remap-register__garanty--inner {
     -ms-grid-columns: (1fr)[1];

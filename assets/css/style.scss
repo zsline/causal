@@ -842,8 +842,8 @@ form{
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 428px;
-      height: 302px;
+      width: clamp(11.25rem, calc(-1.33rem + 46.79vw), 26.75rem);
+      height: clamp(5.63rem, calc(-5.12rem + 40vw), 18.88rem);
       svg{
         width: 100%;
       }
@@ -1019,6 +1019,13 @@ form{
   }
 }
 @media (max-width: 440px){
+  .couching__footer .star{
+    right: auto;
+    left: 40px;
+    top: 0;
+    width: 64px;
+    height: 64px;
+  }
   .whot{
     &__content{
       &--icons{
@@ -1111,8 +1118,6 @@ form{
       p{
       font-size: 16px;
       }
-    }
-    &.open{
     }
     &.open &--content{
       width: clamp(18.75rem, calc(17.27rem + 5.5vw), 23.88rem);
@@ -1658,6 +1663,15 @@ ol{
     }
   }
 }
+@media (max-width:490px) {
+      .step h2 svg{
+    width: 44px;
+    right: 80px;
+  }
+  .couching__footer--anim{
+    right: 0;
+  }
+}
 .formats{
   --text: var(--background);
   color: var(--text);
@@ -1921,6 +1935,7 @@ ol{
     max-width: 1233px;
     width: 70%;
     text-transform: uppercase;
+    font-size: clamp(2.69rem, calc(1.15rem + 5.7vw), 8rem);
   }
   h3{
     font-size: clamp(2.75rem, calc(-0.22rem + 5.18vw), 6rem);
@@ -2059,6 +2074,16 @@ ol{
         margin-bottom: 36px;
       }
     }
+  }
+}
+@media (max-width:490px){
+  .journal h2{
+    width: 100%;
+  }
+}
+@media (max-width:400px){
+  .journal h2{
+    font-size: 34px;
   }
 }
 .social{
@@ -3219,7 +3244,8 @@ ol{
         .thumb {
         position: absolute;
         bottom: 8px;
-        left: var(--padding);
+        left: 0;
+        translate: calc((var(--padding) / 2));
         width: clamp(5.94rem, calc(4.42rem + 5.17vw), 8.56rem);
         height: clamp(1.44rem, calc(1.08rem + 1.23vw), 2.06rem);
         border-radius: 20px;
@@ -3379,6 +3405,7 @@ ol{
         top: 296px;
         left: 0;
       }
+
       &--items{
         margin-left: 100px;
         display: flex;
@@ -3413,6 +3440,33 @@ ol{
           bottom: -24px;
           left: 0px;
           z-index: 2;
+        }
+      }
+      &-last{
+        margin-left: -100px;
+        &--number{
+          font-family: "Lora", sans-serif;
+          font-size: 48px !important;
+          font-weight: 300;
+          color: var(--accent) !important;
+          position: relative;
+          top: 80%;
+        }
+        &--title{
+          &::after{
+            display: none;
+          }
+          &::before{
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: white;
+            border: 7px solid var(--accent);
+            bottom: -32px;
+            left: auto;
+            right: 0;
+            z-index: 2;
+          }
         }
       }
       &--number{
@@ -3531,6 +3585,31 @@ ol{
     h2{
       strong{
         color: var(--green);
+      }
+    }
+    &__wrapper{
+      display: flex;
+      gap: clamp(0rem, calc(-1.41rem + 5.23vw), 4.88rem);
+    }
+    &__item{
+      &--title{
+        font-size: clamp(2.5rem, calc(2.07rem + 1.61vw), 4rem);
+        font-weight: 600;
+        color: var(--green);
+        line-height: 223%;
+      }
+      &:nth-child(1){
+        width: clamp(14.25rem, calc(13.31rem + 3.49vw), 17.5rem);
+      }
+      &:nth-child(2){
+        width: clamp(14.25rem, calc(11.92rem + 8.66vw), 22.31rem);
+      }
+      &:nth-child(3){
+        width: clamp(20.94rem, calc(17.64rem + 12.28vw), 32.38rem);
+      }
+      p{
+        font-size: clamp(0.88rem, calc(0.77rem + 0.4vw), 1.25rem);
+        margin: 0;
       }
     }
   }
@@ -3896,7 +3975,7 @@ ol{
     width: 55%;
   }
   .remap .big-link{
-    position: absolute;
+    position: relative;
     bottom: 0;
     right: 0;
     margin: 0;
@@ -3976,6 +4055,10 @@ ol{
     align-items: center;
     margin-left: 0;
     gap: 35px;
+  }
+  .remap-pilot__wrapper{
+    flex-direction: column;
+    margin-top: 23px;
   }
 }
 @media (max-width:760px){
@@ -4155,7 +4238,7 @@ ol{
     margin-left: -12%;
   }
   .remap-whot h2{
-    max-width: 56%;
+    max-width: 50%;
   }
   .remap-register__garanty--inner {
     grid-template-columns: repeat(1, 1fr);
@@ -4714,6 +4797,7 @@ ol{
   -ms-user-select: none;     /* старый Edge/IE */
   user-select: none;
 }
+
 
 // * {
 //   outline: 1px solid #000;
