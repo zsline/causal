@@ -3982,6 +3982,8 @@ form p input[type="submit"] {
   -webkit-box-shadow: 0 6px 24px #5C5C5C38;
           box-shadow: 0 6px 24px #5C5C5C38;
   cursor: pointer;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .remap-program .scroll-wrap .thumb::after {
@@ -4973,6 +4975,8 @@ form p input[type="submit"] {
   -webkit-box-shadow: 0 6px 24px #5C5C5C38;
           box-shadow: 0 6px 24px #5C5C5C38;
   cursor: pointer;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .result-thumb::after {

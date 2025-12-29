@@ -297,51 +297,56 @@ const thumb = document.getElementById('program-thumb');
 //     window.addEventListener('resize', updateThumb);
 //   }
 // }
-
 function customThumb(scrollBox, thumb){
-  if (scrollBox && thumb) {
+  if (!scrollBox || !thumb) return;
 
-    function updateThumb() {
-      const ratio = scrollBox.scrollLeft / (scrollBox.scrollWidth - scrollBox.clientWidth);
-      const max = scrollBox.clientWidth - thumb.offsetWidth;
-      thumb.style.left = ratio * max + 'px';
-    }
-
-    scrollBox.addEventListener('scroll', updateThumb);
-
-    let isThumbDragging = false;
-    let thumbStartX = 0;
-
-    thumb.addEventListener('pointerdown', (e) => {
-      isThumbDragging = true;
-      thumb.setPointerCapture(e.pointerId);
-
-      thumbStartX = e.clientX - thumb.offsetLeft;
-      document.body.style.userSelect = 'none';
-    });
-
-    thumb.addEventListener('pointermove', (e) => {
-      if (!isThumbDragging) return;
-
-      const max = scrollBox.clientWidth - thumb.offsetWidth;
-      let pos = e.clientX - thumbStartX;
-
-      pos = Math.max(0, Math.min(pos, max));
-      thumb.style.left = pos + 'px';
-
-      const ratio = pos / max;
-      scrollBox.scrollLeft = ratio * (scrollBox.scrollWidth - scrollBox.clientWidth);
-    });
-
-    thumb.addEventListener('pointerup', (e) => {
-      isThumbDragging = false;
-      thumb.releasePointerCapture(e.pointerId);
-      document.body.style.userSelect = '';
-    });
-
-    updateThumb();
-    window.addEventListener('resize', updateThumb);
+  function updateThumb() {
+    const ratio = scrollBox.scrollLeft / (scrollBox.scrollWidth - scrollBox.clientWidth);
+    const max = scrollBox.clientWidth - thumb.offsetWidth;
+    thumb.style.left = ratio * max + 'px';
   }
+
+  scrollBox.addEventListener('scroll', updateThumb);
+
+  let dragging = false;
+  let clickOffset = 0;   // смещение клика внутри ползунка
+
+  thumb.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    thumb.setPointerCapture(e.pointerId);
+
+    const thumbRect = thumb.getBoundingClientRect();
+    clickOffset = e.clientX - thumbRect.left;
+
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  thumb.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+
+    const boxRect = scrollBox.getBoundingClientRect();
+    const max = scrollBox.clientWidth - thumb.offsetWidth;
+
+    let pos = e.clientX - boxRect.left - clickOffset;
+    pos = Math.max(0, Math.min(pos, max));
+
+    thumb.style.left = pos + 'px';
+
+    const ratio = pos / max;
+    scrollBox.scrollLeft = ratio * (scrollBox.scrollWidth - scrollBox.clientWidth);
+
+    e.preventDefault();
+  });
+
+  thumb.addEventListener('pointerup', (e) => {
+    dragging = false;
+    thumb.releasePointerCapture(e.pointerId);
+    document.body.style.userSelect = '';
+  });
+
+  updateThumb();
+  window.addEventListener('resize', updateThumb);
 }
 
 

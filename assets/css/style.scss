@@ -3225,6 +3225,7 @@ ol{
         background: linear-gradient(0deg,rgba(140, 96, 57, 1) 0%, rgba(227, 184, 145, 1) 100%);
         box-shadow: 0 6px 24px #5C5C5C38;
         cursor: pointer;
+        touch-action: none;
         &::after{
           position: absolute;
           content: '';
@@ -4022,6 +4023,7 @@ ol{
   background: linear-gradient(0deg,rgba(140, 96, 57, 1) 0%, rgba(227, 184, 145, 1) 100%);
   box-shadow: 0 6px 24px #5C5C5C38;
   cursor: pointer;
+  touch-action: none;
   &::after{
     position: absolute;
     content: '';
