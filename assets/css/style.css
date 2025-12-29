@@ -4486,6 +4486,11 @@ form p input[type="submit"] {
   margin-bottom: 0;
 }
 
+.remap-creation__content--item svg {
+  width: clamp(3rem, calc(2.42rem + 2.15vw), 5rem);
+  height: clamp(3rem, calc(2.42rem + 2.15vw), 5rem);
+}
+
 .remap-register__title {
   max-width: 1220px;
   margin-left: auto;
@@ -4812,14 +4817,14 @@ form p input[type="submit"] {
   .remap-result__min {
     width: 55%;
   }
-  .remap-result__content .big-link {
+  .remap .big-link {
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 0;
     font-size: clamp(1.25rem, calc(0.53rem + 2.46vw), 2.5rem);
   }
-  .remap-result__content .big-link::after {
+  .remap .big-link::after {
     content: url('data:image/svg+xml,<svg width="85" height="15" viewBox="0 0 85 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M76.9287 0.292745C77.3191 -0.0976807 77.9522 -0.0974823 78.3428 0.292745L84.707 6.657C85.0976 7.04753 85.0976 7.68054 84.707 8.07106L78.3428 14.4353C77.9522 14.8255 77.3191 14.8257 76.9287 14.4353C76.5383 14.0449 76.5385 13.4118 76.9287 13.0213L81.5859 8.36403H0V6.36403H81.5859L76.9287 1.70681C76.5385 1.31626 76.5383 0.68317 76.9287 0.292745Z" fill="%23E3B891"/></svg>');
     margin-top: 4px;
     position: relative;
@@ -5015,6 +5020,9 @@ form p input[type="submit"] {
 }
 
 @media (max-width: 490px) {
+  .remap .big-link {
+    width: 60%;
+  }
   .remap-program .scroll-wrap {
     padding: 0;
   }
@@ -5096,10 +5104,19 @@ form p input[type="submit"] {
 
 @media (max-width: 400px) {
   .remap h2 {
-    font-size: 54px;
+    font-size: 50px;
+  }
+  .remap-whot__content--title {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    overflow: hidden;
+  }
+  .remap-whot__content--subtitle {
+    margin-left: -12%;
   }
   .remap-whot h2 {
-    max-width: 60%;
+    max-width: 56%;
   }
   .remap-register__garanty--inner {
     -ms-grid-columns: (1fr)[1];
