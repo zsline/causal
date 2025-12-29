@@ -264,39 +264,86 @@ if (programBox) enableDragScroll(programBox, 1.3);
 
 // ====== Кастомный ползунок ======
 const thumb = document.getElementById('program-thumb');
+// function customThumb(scrollBox, thumb){
+//   if (scrollBox && thumb) {
+//     function updateThumb() {
+//       const ratio = scrollBox.scrollLeft / (scrollBox.scrollWidth - scrollBox.clientWidth);
+//       const max = scrollBox.clientWidth - thumb.offsetWidth;
+//       thumb.style.left = ratio * max + 'px';
+//     }
+//     scrollBox.addEventListener('scroll', updateThumb);
+//     let isThumbDragging = false;
+//     let thumbStartX = 0;
+//     thumb.addEventListener('mousedown', (e) => {
+//       isThumbDragging = true;
+//       thumbStartX = e.clientX - thumb.offsetLeft;
+//       document.body.style.userSelect = 'none';
+//     });
+//     document.addEventListener('mouseup', () => {
+//       isThumbDragging = false;
+//       document.body.style.userSelect = '';
+//     });
+//     document.addEventListener('mousemove', (e) => {
+//       if (!isThumbDragging) return;
+//       const max = scrollBox.clientWidth - thumb.offsetWidth;
+//       let pos = e.clientX - thumbStartX;
+//       pos = Math.max(0, Math.min(pos, max));
+//       thumb.style.left = pos + 'px';
+//       const ratio = pos / max;
+//       scrollBox.scrollLeft = ratio * (scrollBox.scrollWidth - scrollBox.clientWidth);
+//     });
+//     // Обновляем при загрузке и ресайзе
+//     updateThumb();
+//     window.addEventListener('resize', updateThumb);
+//   }
+// }
+
 function customThumb(scrollBox, thumb){
   if (scrollBox && thumb) {
+
     function updateThumb() {
       const ratio = scrollBox.scrollLeft / (scrollBox.scrollWidth - scrollBox.clientWidth);
       const max = scrollBox.clientWidth - thumb.offsetWidth;
       thumb.style.left = ratio * max + 'px';
     }
+
     scrollBox.addEventListener('scroll', updateThumb);
+
     let isThumbDragging = false;
     let thumbStartX = 0;
-    thumb.addEventListener('mousedown', (e) => {
+
+    thumb.addEventListener('pointerdown', (e) => {
       isThumbDragging = true;
+      thumb.setPointerCapture(e.pointerId);
+
       thumbStartX = e.clientX - thumb.offsetLeft;
       document.body.style.userSelect = 'none';
     });
-    document.addEventListener('mouseup', () => {
-      isThumbDragging = false;
-      document.body.style.userSelect = '';
-    });
-    document.addEventListener('mousemove', (e) => {
+
+    thumb.addEventListener('pointermove', (e) => {
       if (!isThumbDragging) return;
+
       const max = scrollBox.clientWidth - thumb.offsetWidth;
       let pos = e.clientX - thumbStartX;
+
       pos = Math.max(0, Math.min(pos, max));
       thumb.style.left = pos + 'px';
+
       const ratio = pos / max;
       scrollBox.scrollLeft = ratio * (scrollBox.scrollWidth - scrollBox.clientWidth);
     });
-    // Обновляем при загрузке и ресайзе
+
+    thumb.addEventListener('pointerup', (e) => {
+      isThumbDragging = false;
+      thumb.releasePointerCapture(e.pointerId);
+      document.body.style.userSelect = '';
+    });
+
     updateThumb();
     window.addEventListener('resize', updateThumb);
   }
 }
+
 
 customThumb(programBox, thumb);
 const resultBox = document.querySelector('.remap-result__content--wrapper');
